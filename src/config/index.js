@@ -37,9 +37,6 @@ const MatchTabNavigator = TabNavigator({
 
 //Main Nav
 const LoginNavigator = StackNavigator({
-  //  MatchTab: {
-  //   screen: MatchTab,
-  // },
   Login: {
     screen: Login,
   },
@@ -49,12 +46,6 @@ const LoginNavigator = StackNavigator({
   Settings: {
     screen: Settings,
   },
-  // ProfileTab: {
-  //   screen: ProfileTab,
-  // },
-  // ChatTab: {
-  //   screen: ChatTab,
-  // }
   MatchTabNavigator: {
     screen: MatchTabNavigator,
   },

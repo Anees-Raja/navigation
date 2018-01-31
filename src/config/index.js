@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation'; // 1.0.0-beta.27
 import Login from '../screens/Login';
 import Cravings from '../screens/Cravings';
@@ -7,6 +6,7 @@ import MatchTab from '../screens/MatchTab';
 import Settings from '../screens/Settings';
 import ChatTab from '../screens/ChatTab';
 import ProfileTab from '../screens/ProfileTab';
+import ButtonWithNavigation from '../components/ButtonWithNavigation';
 
 export const MatchStackNavigator = StackNavigator({
   MatchTab: {
@@ -29,6 +29,9 @@ const MatchTabNavigator = TabNavigator({
   },
   MatchTab: {
     screen: MatchTab,
+    navigationOptions: {
+      headerRight: <ButtonWithNavigation to="Settings" />
+    }
   },
 }, {
   initialRouteName: 'ProfileTab',

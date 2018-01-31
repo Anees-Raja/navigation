@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text, Button, Alert } from 'react-native';
-import ProfileTab from '../screens/ProfileTab';
-import ChatTab from '../screens/ChatTab';
+import { View, Text, Button } from 'react-native';
+
 
 export default class MatchTab extends Component {
-  
-  _handleButtonPress = () => {
-    Alert.alert(
-      'Button pressed!',
-      'Matches <3',
-    );
-  };
-
   render() {
     return(
       <View>
         <Text>Match Tab</Text>
-        <Button
-          title="Settings"
+        {/* <Button 
           onPress={() => this.props.navigation.navigate('Settings')}
-        />
+          title="Settings"
+        /> */}
       </View>
     );
   }

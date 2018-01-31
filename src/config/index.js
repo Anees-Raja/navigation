@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation'; // 1.0.0-beta.27
 import Login from '../screens/Login';
 import Cravings from '../screens/Cravings';
@@ -7,51 +8,59 @@ import Settings from '../screens/Settings';
 import ChatTab from '../screens/ChatTab';
 import ProfileTab from '../screens/ProfileTab';
 
-
-
-//Match Tab Nav
-const MatchTabNavigator = TabNavigator({
+export const MatchStackNavigator = StackNavigator({
   MatchTab: {
     screen: MatchTab,
-    navigationOptions: {
-      title: 'Matches'
-    },
-  },
-  ProfileTab: {
-    screen: ProfileTab,
-    navigationOptions: {
-      title: 'Profile'
-    },
-  },
-  ChatTab: {
-    screen: ChatTab,
-    navigationOptions: {
-      title: 'Chats',
-    },
-  },
-}, {
-  headerMode: 'none',
-  initialRouteName: 'MatchTab',
-});
-
-
-//Main Nav
-const LoginNavigator = StackNavigator({
-  Login: {
-    screen: Login,
-  },
-  Cravings: {
-    screen: Cravings,
   },
   Settings: {
     screen: Settings,
   },
+}, {
+  headerMode: 'none',
+});
+
+//Match Tab Nav
+const MatchTabNavigator = TabNavigator({
+  ProfileTab: {
+    screen: ProfileTab,
+  },
+  ChatTab: {
+    screen: ChatTab,
+  },
+  MatchTab: {
+    screen: MatchTab,
+  },
+}, {
+  initialRouteName: 'ProfileTab',
+  tabBarPosition: 'bottom', //has to be lowercase 'bottom' or 'top'
+});
+
+
+//Login Stack Nav
+const LoginNavigator = StackNavigator({
+  Login: {
+    screen: Login,
+    navigationOptions: {
+      title: 'Login',
+    }
+  },
+  Cravings: {
+    screen: Cravings,
+    navigationOptions: {
+      title: 'Cravings'
+    }
+  },
   MatchTabNavigator: {
     screen: MatchTabNavigator,
   },
+  MatchStackNavigator: {
+    screen: MatchStackNavigator,
+  },
 }, {
-  headerMode: 'none',
-  initialRouteName: 'Login',
+  navigationOptions: {
+    headerLeft: null,
+  },
+  initialRouteName: 'Login'
 });
 
 export default LoginNavigator;

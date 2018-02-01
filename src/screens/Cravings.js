@@ -9,7 +9,7 @@ export default class Cravings extends Component {
         <Text>Cravings Screen</Text>
         <Button
           title="Tabs (Home)"
-          onPress={() => this.props.navigation.navigate('MatchTabNavigator')}
+          onPress={() => this.props.navigation.navigate('ProfileTab')}
         />
       </View>
     );

@@ -6,18 +6,21 @@ import MatchTab from '../screens/MatchTab';
 import Settings from '../screens/Settings';
 import ChatTab from '../screens/ChatTab';
 import ProfileTab from '../screens/ProfileTab';
-import { Button } from 'react-native';
+import { Button, View } from 'react-native';
 
 export const MatchStackNavigator = StackNavigator({
   MatchTab: {
     screen: MatchTab,
+    navigationOptions: {
+      headerRight: <Button onPress={() => this.props.navigation.navigate('Settings')} title="Settings" />
+    },
   },
   Settings: {
     screen: Settings,
   },
 }, {
   headerMode: 'none',
-  initialRouteName: 'Settings',
+  initialRouteName: 'MatchTab',
 });
 
 //Match Tab Nav
@@ -28,11 +31,9 @@ const MatchTabNavigator = TabNavigator({
   ChatTab: {
     screen: ChatTab,
   },
-  MatchTab: {
-    screen: MatchTab,
-    navigationOptions: {
-      headerRight: <Button onPress={() => NavigationActions.navigate({ routeName: 'Settings' })} title="Settings" />
-    }
+  MatchStackNavigator: {
+    screen: MatchStackNavigator,
+    title: 'Matches'
   },
 }, {
   initialRouteName: 'ProfileTab',
@@ -57,9 +58,6 @@ const LoginNavigator = StackNavigator({
   MatchTabNavigator: {
     screen: MatchTabNavigator,
   },
-  MatchStackNavigator: {
-    screen: MatchStackNavigator,
-  }
 }, {
   navigationOptions: {
     headerLeft: null,

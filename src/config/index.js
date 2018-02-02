@@ -6,17 +6,26 @@ import MatchTab from '../screens/MatchTab';
 import Settings from '../screens/Settings';
 import ChatTab from '../screens/ChatTab';
 import ProfileTab from '../screens/ProfileTab';
-import { Button, View } from 'react-native';
+import NavButton from '../components/NavButton';
+import { Button } from 'react-native';
 
+//Match Stack Nav
 export const MatchStackNavigator = StackNavigator({
   MatchTab: {
     screen: MatchTab,
-    navigationOptions: {
-      headerRight: <Button onPress={() => this.props.navigation.navigate('Settings')} title="Settings" />
-    },
+    //THIS IS HOW YOU DO IT, DO NOT CHANGE THIS CODE IT WORKS!
+    navigationOptions: ({ navigation }) => ({
+      headerRight: (
+        <Button onPress={() => navigation.navigate('Settings')} title="Settings" />
+      ),
+    })
   },
   Settings: {
     screen: Settings,
+    title: 'Settings',
+  },
+  NavButton: {
+    screen: NavButton,
   },
 }, {
   headerMode: 'none',
@@ -31,6 +40,7 @@ const MatchTabNavigator = TabNavigator({
   ChatTab: {
     screen: ChatTab,
   },
+  //Nest inside Tab (which is nested in LoginNavigator)
   MatchStackNavigator: {
     screen: MatchStackNavigator,
     title: 'Matches'
@@ -55,6 +65,7 @@ const LoginNavigator = StackNavigator({
       title: 'Cravings'
     }
   },
+  //Nest inside Login Navigator
   MatchTabNavigator: {
     screen: MatchTabNavigator,
   },

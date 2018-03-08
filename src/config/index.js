@@ -6,7 +6,6 @@ import MatchTab from '../screens/MatchTab';
 import Settings from '../screens/Settings';
 import ChatTab from '../screens/ChatTab';
 import ProfileTab from '../screens/ProfileTab';
-import NavButton from '../components/NavButton';
 import { Button } from 'react-native';
 
 //Match Stack Nav
@@ -23,9 +22,6 @@ export const MatchStackNavigator = StackNavigator({
   Settings: {
     screen: Settings,
     title: 'Settings',
-  },
-  NavButton: {
-    screen: NavButton,
   },
 }, {
   headerMode: 'none',
